@@ -295,6 +295,10 @@ class GEOSGeometry(GEOSBase, ListMixin):
         "Returns true if other.within(this) returns true."
         return capi.geos_contains(self.ptr, other.ptr)
 
+    def nearest_points(self, other):
+        "Returns nearest point of other geometry to self."
+        return GEOSCoordSeq(capi.nearest_points(self.ptr, other.ptr))
+
     def crosses(self, other):
         """
         Returns true if the DE-9IM intersection matrix for the two Geometries

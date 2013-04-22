@@ -81,3 +81,6 @@ cs_setz = cs_operation(GEOSFunc('GEOSCoordSeq_setZ'))
 # These routines return size & dimensions.
 cs_getsize = cs_int(GEOSFunc('GEOSCoordSeq_getSize'))
 cs_getdims = cs_int(GEOSFunc('GEOSCoordSeq_getDimensions'))
+
+# Get nearest points
+nearest_points = cs_output(GEOSFunc('GEOSNearestPoints'), [GEOM_PTR, GEOM_PTR])

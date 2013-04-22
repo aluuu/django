@@ -7,7 +7,7 @@
 # Coordinate sequence routines.
 from django.contrib.gis.geos.prototypes.coordseq import (create_cs, get_cs,
     cs_clone, cs_getordinate, cs_setordinate, cs_getx, cs_gety, cs_getz,
-    cs_setx, cs_sety, cs_setz, cs_getsize, cs_getdims)
+    cs_setx, cs_sety, cs_setz, cs_getsize, cs_getdims, nearest_points)
 
 # Geometry routines.
 from django.contrib.gis.geos.prototypes.geom import (from_hex, from_wkb, from_wkt,
