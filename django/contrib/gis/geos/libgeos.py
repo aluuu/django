@@ -70,6 +70,9 @@ def notice_h(fmt, lst):
     logger.warning('GEOS_NOTICE: %s\n' % warn_msg)
 notice_h = NOTICEFUNC(notice_h)
 
+class GEOSLowLevelException(Exception):
+    pass
+
 ERRORFUNC = CFUNCTYPE(None, c_char_p, c_char_p)
 def error_h(fmt, lst):
     fmt, lst = fmt.decode(), lst.decode()
@@ -77,7 +80,8 @@ def error_h(fmt, lst):
         err_msg = fmt % lst
     except:
         err_msg = fmt
-    logger.error('GEOS_ERROR: %s\n' % err_msg)
+    raise GEOSLowLevelException(err_msg)
+
 error_h = ERRORFUNC(error_h)
 
 #### GEOS Geometry C data structures, and utility functions. ####
